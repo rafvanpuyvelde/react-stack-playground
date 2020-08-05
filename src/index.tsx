@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import { Router } from "react-router-dom";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import { createBrowserHistory } from "history";
 import * as serviceWorker from "./serviceWorker";
+
+import "./index.css";
+import App from "../src/containers/app/App";
+
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Router history={history}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
